@@ -1,17 +1,12 @@
-window.onload = () => {
-	main();
-};
-function main(){
-
+document.getElementById('btn').addEventListener('click',function main(){
 const getBackById=document.getElementById('root');
-document.getElementById('btn').addEventListener('click',function(){
+
     
     const bgColor = generateColor();
 
     getBackById.style.backgroundColor=bgColor;
 
 });
-}
 
 function generateColor(){
     const red=Math.floor(Math.random()*255);
