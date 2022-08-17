@@ -1,23 +1,23 @@
-window.onload = () => {
-	main();
-};
+document.getElementById('btn').addEventListener('click',function(){
+	const getBackById=document.getElementById('root');
+	const inputField=document.getElementById('output');
 
-function main() {
-	const root = document.getElementById('root');
-	const btn = document.getElementById('change-btn');
+	const bgFunc=makeRandomValue();
+	inputField.value=bgFunc;
 
-	btn.addEventListener('click', function () {
-		const bgColor = generateRGBColor();
-		root.style.backgroundColor = bgColor;
-	});
-}
+	getBackById.style.backgroundColor=bgFunc;
+})
+document.getElementById('copy').addEventListener('click',function(){
+	const inputField=document.getElementById('output');
+	const copyButton = document.getElementById('copy');
 
-// step 2 - random color generator function
-function generateRGBColor() {
-	// rgb(0, 0, 0), rgb(255, 255, 255)
-	const red = Math.floor(Math.random() * 255);
-	const green = Math.floor(Math.random() * 255);
-	const blue = Math.floor(Math.random() * 255);
+	navigator.clipboard.writeText(makeRandomValue());
+})
 
-	return `rgb(${red}, ${green}, ${blue})`;
+let makeRandomValue=function(){
+	const red = Math.floor(Math.random()*255);
+	const green = Math.floor(Math.random()*255);
+	const blue = Math.floor(Math.random()*255);
+
+	return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
 }
